@@ -6,8 +6,6 @@ function App(props) {
     <main className="app">
       this is the app{" "}
       <img src={icon} style={{ height: 50 }} alt="folder icon"></img>
-      <div className="test-icon-div"></div>
-      <div className="test"></div>
     </main>
   );
 }
