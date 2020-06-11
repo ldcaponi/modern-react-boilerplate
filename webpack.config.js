@@ -6,6 +6,7 @@ const MiniCssExtractPlugin = require("mini-css-extract-plugin");
 module.exports = {
   output: {
     filename: "[name].[contenthash].js",
+    chunkFilename: "[name].[contenthash].js",
     path: path.resolve(__dirname, "dist"),
   },
   module: {
@@ -56,4 +57,7 @@ module.exports = {
       filename: "[name].[contenthash].css",
     }),
   ],
+  devServer: {
+    historyApiFallback: true,
+  },
 };

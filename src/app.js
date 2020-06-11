@@ -1,11 +1,33 @@
-import React from "react";
-import icon from "./images/files-and-folders.svg";
+import React, { Suspense } from "react";
+import {
+  Switch,
+  Route,
+  BrowserRouter as Router,
+} from "react-router-dom";
+const Home = React.lazy(() =>
+  import(/* webpackChunkName: "home" */ "../pages/home"),
+);
+const About = React.lazy(() =>
+  import(/* webpackChunkName: "about" */ "../pages/about"),
+);
 
 function App(props) {
   return (
     <main className="app">
-      this is the app{" "}
-      <img src={icon} style={{ height: 50 }} alt="folder icon"></img>
+      <Router>
+        <Switch>
+          <Route path="/about">
+            <Suspense fallback={<div>Loading About...</div>}>
+              <About />
+            </Suspense>
+          </Route>
+          <Route path="/">
+            <Suspense fallback={<div>Loading Home...</div>}>
+              <Home />
+            </Suspense>
+          </Route>
+        </Switch>
+      </Router>
     </main>
   );
 }
