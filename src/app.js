@@ -5,29 +5,27 @@ import {
   BrowserRouter as Router,
 } from "react-router-dom";
 const Home = React.lazy(() =>
-  import(/* webpackChunkName: "home" */ "../pages/home"),
+  import(/* webpackChunkName: "home" */ "./pages/home"),
 );
 const About = React.lazy(() =>
-  import(/* webpackChunkName: "about" */ "../pages/about"),
+  import(/* webpackChunkName: "about" */ "./pages/about"),
 );
 
 function App(props) {
   return (
     <main className="app">
-      <Router>
-        <Switch>
-          <Route path="/about">
-            <Suspense fallback={<div>Loading About...</div>}>
+      <Suspense fallback={<div>Loading...</div>}>
+        <Router>
+          <Switch>
+            <Route path="/about">
               <About />
-            </Suspense>
-          </Route>
-          <Route path="/">
-            <Suspense fallback={<div>Loading Home...</div>}>
+            </Route>
+            <Route path="/">
               <Home />
-            </Suspense>
-          </Route>
-        </Switch>
-      </Router>
+            </Route>
+          </Switch>
+        </Router>
+      </Suspense>
     </main>
   );
 }
