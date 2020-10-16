@@ -49,7 +49,7 @@ module.exports = {
   plugins: [
     new CleanWebpackPlugin(),
     new HtmlWebPackPlugin({
-      template: "./src/index.html",
+      template: "./public/index.html",
       filename: "./index.html",
     }),
     new MiniCssExtractPlugin({
@@ -60,5 +60,6 @@ module.exports = {
   devServer: {
     historyApiFallback: true,
     open: true,
+    port: 3000,
   },
 };
