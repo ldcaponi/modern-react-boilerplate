@@ -4,6 +4,7 @@ import {
   Route,
   BrowserRouter as Router,
 } from "react-router-dom";
+
 const Home = React.lazy(() =>
   import(/* webpackChunkName: "home" */ "./pages/home"),
 );
